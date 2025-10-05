@@ -1,0 +1,28 @@
+import {DirectorModel} from './director.model';
+import {MovieActorModel} from './movieActor.model';
+import {MovieGenreModel} from './movieGenre.model';
+
+export interface MovieModel {
+    movieId: number;
+    internalId: string;
+    corporateId: string;
+    directorId: number;
+    title: string;
+    originalTitle: string;
+    description: string;
+    shortDescription: string;
+    poster: string;
+    startDate: string;
+    shortUrl: string;
+    runTime: number;
+    active: boolean;
+    createdAt: string;
+    updatedAt: string | null;
+    director: DirectorModel;
+    movieActors: MovieActorModel[];
+    movieGenres: MovieGenreModel[]
+}
+
+
+
+

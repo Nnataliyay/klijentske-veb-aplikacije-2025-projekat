@@ -1,0 +1,46 @@
+html, body {
+    height: 100%;
+    background-color: #1e2124;
+    color: white;
+}
+
+a{
+    color: gray;
+}
+
+body {
+    margin: 170px 0 0 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.wrapper {
+    max-width: 70%;
+    margin: 30px auto;
+}
+
+.example-card {
+    max-width: 300px;
+}
+
+.loading{
+    text-align: center;
+    align-items: center;
+    width: 700px;
+    padding: 40px;
+}
+
+.auth-card{
+    margin: 30px auto;
+    padding: 30px 100px;
+    max-width: 743px;
+}
+
+.full-width{
+    width: 100%;
+}

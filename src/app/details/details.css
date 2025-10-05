@@ -1,0 +1,28 @@
+.movie-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.movie-card{
+    max-width: 62%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+}
+
+.movie-card-img{
+    width: 35%;
+}
+
+.movie-card mat-card-content, .movie-card mat-card-actions{
+    padding: 0 40px;
+}
+
+mat-list, mat-list-item{
+    padding: 0;
+    margin: 0;
+}
+

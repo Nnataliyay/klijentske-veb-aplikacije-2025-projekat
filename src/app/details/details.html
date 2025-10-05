@@ -1,0 +1,42 @@
+<div class="wrapper" *ngIf="movie">
+    <div class="movie-content">
+        <mat-card class="movie-card-img" appearance="outlined">
+            <img mat-card-image [src]="movie.poster" [alt]="movie.originalTitle">
+        </mat-card>
+
+        <mat-card class="movie-card" appearance="outlined">
+            <mat-card-content>
+                <h1>{{movie.originalTitle}}</h1>
+                <mat-chip-set aria-label="Chihuahua traits">
+                    <mat-chip>Horor</mat-chip>
+                    <mat-chip>Psychological</mat-chip>
+                    <mat-chip>Mystery</mat-chip>
+
+                </mat-chip-set>
+                <p>Description: {{movie.description}}</p>
+
+                <mat-list role="list">
+                    <mat-list-item>
+                        <p>Director: {{movie.director.name}}</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <div>Actors: {{movie.movieActors}}</div>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p>Start date: {{movie.startDate}}</p>
+                    </mat-list-item>
+
+                </mat-list>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-button [routerLink]="['/details/'+movie.movieId+'/purchase']">
+                    <i class="fa-solid fa-bookmark"></i> Purchase
+                </a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+
+</div>
+
+<app-loading *ngIf="!movie"></app-loading>

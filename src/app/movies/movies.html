@@ -1,0 +1,43 @@
+
+<div class="wrapper">
+
+
+    <div *ngIf="error" class="container">
+        <mat-card class="loading" appearance="outlined">
+            <mat-card-content>
+                <h1>Oops, an error has occurred</h1>
+                <p style="color: red">Error: {{error}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div *ngIf="movies" class="container">
+        <mat-card class="example-card" appearance="outlined" *ngFor="let movie of movies">
+            <img mat-card-image [src]="movie.poster" [alt]="movie.originalTitle">
+            <mat-card-content>
+                <h1>{{movie.originalTitle}}</h1>
+                <p>Description: {{movie.shortDescription}}</p>
+                <p>Length: {{movie.runTime}} minutes</p>
+                <p>Start date: {{utils.formatDate(movie.startDate)}}</p>
+
+            </mat-card-content>
+            <mat-card-actions>
+                <a matButton [routerLink]="['/details/', movie.movieId]" >
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Details
+                </a>
+                <a mat-button [routerLink]="['/details/'+movie.movieId+'/purchase']">
+                    <i class="fa-solid fa-bookmark"></i> Purchase
+                </a>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+
+
+
+</div>
+
+<app-loading *ngIf="!movies && !error"></app-loading>
+
+
+

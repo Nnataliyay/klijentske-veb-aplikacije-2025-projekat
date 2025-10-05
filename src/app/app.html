@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+    <a routerLink="/"><i class="fa-solid fa-film"></i> Movietopia</a>
+    <span class="spacer"></span>
+    <a routerLink="/" mat-button>
+        <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a routerLink="/movies" mat-button>
+        <i class="fa-solid fa-film"></i> Movies
+    </a>
+    <a routerLink="/search" mat-button>
+        <i class="fa-solid fa-search"></i> Search
+    </a>
+    <a routerLink="/login" mat-button *ngIf="service.getActiveUser() == null">
+        <i class="fa-solid fa-right-to-bracket"></i> Login
+    </a>
+    <a routerLink="/user" mat-button *ngIf="service.getActiveUser() != null">
+        <i class="fa-solid fa-user"></i> User
+    </a>
+    <a routerLink="/cart" mat-button>
+        <i class="fa-solid fa-cart-shopping"></i> Cart
+    </a>
+    <a routerLink="/about" mat-button>
+        <i class="fa-solid fa-circle-info"></i> About
+    </a>
+    <button mat-button *ngIf="service.getActiveUser() != null" (click)="doLogout()">
+        <i class="fa-solid fa-right-from-bracket"></i> Log Out
+    </button>
+</mat-toolbar>
+<router-outlet />  <!-- ovde ce se ubaciti html drugih komponenti -->
+<footer>
+    <div layout="row" layout-align="center center">
+        <p>&copy; Natalija Jolović - 2022202496</p>
+        <div class="icons">
+            <a href="https://github.com/Nnataliyay"  target="_blank"><i class="fa-brands fa-github"></i> </a>
+            <a href="https://www.linkedin.com/in/natalijajolovic/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
