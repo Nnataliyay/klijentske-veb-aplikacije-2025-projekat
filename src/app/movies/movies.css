@@ -4,6 +4,11 @@
     display: flex;
     justify-content: space-between;
     row-gap: 40px;
+    flex-direction: row;
     flex-wrap: wrap;
 }
-
+mat-card-actions a{
+    margin: 10px auto 0  auto;
+    width: 174px;
+    padding: 25px;
+}

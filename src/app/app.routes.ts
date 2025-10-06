@@ -8,6 +8,7 @@ import {User} from './user/user';
 import {Movies} from './movies/movies';
 import {Cart} from './cart/cart';
 import {Purchase} from './purchase/purchase';
+import {FavoriteList} from './favorite-list/favorite-list';
 
 export const routes: Routes = [
     { path: '', component: Home},
@@ -16,9 +17,10 @@ export const routes: Routes = [
     { path: 'about', component: About},
     { path: 'search', component: Search},
     { path: 'details/:movieId', component: Details},
-    { path: 'details/:movieId/purchase', component: Purchase},
+    { path: 'details/:movieId/purchase/:projectionId', component: Purchase},
     { path: 'login', component: Login},
     { path: 'user', component: User},
+    { path: 'user/favorites/:id', component: FavoriteList},
 
 
     { path: '**', redirectTo: ''} // svi pathovi moraju biti definisani iznad ovog jer on mapira bilo sta dalje na home komponentu

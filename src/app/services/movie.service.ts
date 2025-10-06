@@ -29,6 +29,7 @@ export class MovieService {
         return client.get(`/movie/${id}`);
     };
 
+
     static async getGenreById(id: number) {
         return client.get(`/movie/${id}`);
     };

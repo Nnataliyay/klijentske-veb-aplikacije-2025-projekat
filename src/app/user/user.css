@@ -3,3 +3,29 @@
     max-width: 800px;
     padding: 30px;
 }
+
+a{
+    margin: 20px auto;
+    width: 174px;
+}
+
+mat-card-header{
+    padding: 30px;
+}
+
+mat-expansion-panel{
+    padding: 30px 0;
+}
+
+fave-card {
+    padding: 40px 0;
+}
+
+button{
+    margin: 20px auto;
+    padding: 15px;
+}
+mat-expansion-panel{
+    padding: 0;
+    margin: 0;
+}

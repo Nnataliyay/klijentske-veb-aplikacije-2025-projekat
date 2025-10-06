@@ -1,0 +1,31 @@
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-card-img{
+    width: 35%;
+
+    justify-content: space-evenly;
+}
+
+.order-card {
+    max-width: 62%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-card h1{
+    padding: 0 0 20px 0;
+}
+
+mat-card-actions button{
+    align-self: center;
+    margin: 10px auto 0  auto;
+    width: 174px;
+    padding: 25px;
+}
+
+

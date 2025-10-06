@@ -1,0 +1,25 @@
+
+    <h2>Favorite movies </h2>
+    <div class="container">
+
+        <mat-card *ngFor="let fave of user!.favoriteMoviesIds" class="fave-card" appearance="outlined">
+            <img mat-card-image [src]="movies![fave].poster" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    <b>{{movies![fave].title}}</b>
+                </p>
+                <mat-card-actions>
+                    <button matButton>Comment</button>
+                </mat-card-actions>
+                <mat-card-actions>
+                    <button matButton>Rate</button>
+                </mat-card-actions>
+                <mat-card-actions>
+                    <button matButton>Remove</button>
+                </mat-card-actions>
+            </mat-card-content>
+
+        </mat-card>
+
+    </div>
+

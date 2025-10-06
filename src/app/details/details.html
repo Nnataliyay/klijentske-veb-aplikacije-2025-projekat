@@ -28,6 +28,7 @@
         </mat-card>
 
         <div class="projection-container">
+            <h1 style="width: 100%">Reviews </h1>
             <mat-card class="projection-card" appearance="outlined"*ngFor="let projection of projections">
                 <mat-card-content>
                     <p>{{projection.date}}</p>
@@ -35,11 +36,35 @@
                     <p>{{projection.type}}</p>
                     <br/>
                     <p>Price: {{projection.price}} RSD</p>
+                    <p>Price: {{projection.projectionId}} ID</p>
 
 
                 </mat-card-content>
                 <mat-card-actions>
-                    <a mat-button [routerLink]="['/details/'+movie.movieId+'/purchase']">
+                    <a mat-button [routerLink]="['/details/'+movie.movieId+'/purchase/'+projection.projectionId]">
+                        <i class="fa-solid fa-bookmark"></i> Reserve tickets
+                    </a>
+                </mat-card-actions>
+            </mat-card>
+
+        </div>
+
+
+        <div class="projection-container">
+            <h1 style="width: 100%">Upcoming Projections </h1>
+            <mat-card class="projection-card" appearance="outlined"*ngFor="let projection of projections">
+                <mat-card-content>
+                    <p>{{projection.date}}</p>
+                    <p>Length: {{movie.runTime}} min</p>
+                    <p>{{projection.type}}</p>
+                    <br/>
+                    <p>Price: {{projection.price}} RSD</p>
+                    <p>Price: {{projection.projectionId}} ID</p>
+
+
+                </mat-card-content>
+                <mat-card-actions>
+                    <a mat-button [routerLink]="['/details/'+movie.movieId+'/purchase/'+projection.projectionId]">
                         <i class="fa-solid fa-bookmark"></i> Reserve tickets
                     </a>
                 </mat-card-actions>

@@ -1,1 +1,62 @@
-<p>purchase works!</p>
+<div class="wrapper" *ngIf="projection">
+
+    <mat-card class="movie-card-img" appearance="outlined">
+        <img mat-card-image [src]="movie!.poster" [alt]="movie!.title">
+    </mat-card>
+
+    <mat-card class="order-card" appearance="outlined">
+        <mat-card-content>
+            <h1>New Reservation - {{movie?.title}}</h1>
+            <mat-form-field class="full-width">
+                <mat-label>Time :</mat-label>
+                <input type="text" matInput disabled [value]="projection?.date">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Runtime :</mat-label>
+                <input type="text" matInput disabled [value]="movie!.runTime + ' minutes'">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Projection type :</mat-label>
+                <input type="text" matInput disabled [value]="projection?.type">
+            </mat-form-field>
+
+            <!--
+            <mat-form-field class="full-width">
+                <mat-label>Airline:</mat-label>
+                <mat-select class="full-width"  [(ngModel)]="selectedAirline">
+                    <mat-option *ngFor="let airline of airlines" [value]="airline.id">
+                        {{airline.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            -->
+
+            <mat-form-field class="full-width">
+                <mat-label>Price per ticket:</mat-label>
+                <input type="text" matInput disabled [value]="projection!.price">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Ticket Count:</mat-label>
+                <input type="number" matInput [(ngModel)]="selectedTicketCount">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Total: </mat-label>
+                <input type="text" matInput disabled [value]="projection!.price * selectedTicketCount">
+            </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button><!--(click)="doAddToCart()"-->
+                <i class="fa-solid fa-cart-shopping"></i> Reserve
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+
+</div>
+
+<app-loading *ngIf="!projection"></app-loading>

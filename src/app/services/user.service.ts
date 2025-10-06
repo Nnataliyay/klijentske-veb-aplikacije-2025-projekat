@@ -2,6 +2,7 @@ import {UserModel} from '../../models/user.model';
 import {CartModel} from '../../models/cart.model';
 import {MovieModel} from '../../models/movie.model';
 import {MovieService} from './movie.service';
+import {ProjectionModel} from '../../models/projection.model';
 
 
 export class UserService {
@@ -16,7 +17,7 @@ export class UserService {
                     lastName: "exampleLastname",
                     phoneNumber: "061 1234567",
                     address: "exampleAddress 123",
-                    favoriteMoviesIds: [],
+                    favoriteMoviesIds: [1, 7, 4, 3],
                     watchedMoviesIds: [],
                     cart: []
                 }
@@ -57,7 +58,7 @@ export class UserService {
         return null;
     }
 
-    static addToCart(cartItem:CartModel):boolean{
+    static addToCart(cartItem: CartModel){
         const arr = this.retrieveUsers();
         for(let user of arr){
             if(user.email == localStorage.getItem('active')){
@@ -80,6 +81,20 @@ export class UserService {
             }
         }
         return false;
+    }
+
+    static updateUser(model: UserModel) {
+        const users = this.retrieveUsers()
+        for (let u of users) {
+            if (u.email === model.email) {
+                u.firstName = model.firstName
+                u.lastName = model.lastName
+                u.address = model.address
+                u.phoneNumber = model.phoneNumber
+            }
+        }
+
+        localStorage.setItem('users', JSON.stringify(users))
     }
 
     constructor() { }

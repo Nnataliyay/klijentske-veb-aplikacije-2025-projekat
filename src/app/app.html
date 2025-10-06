@@ -17,7 +17,7 @@
         <i class="fa-solid fa-user"></i> User
     </a>
     <a routerLink="/cart" mat-button>
-        <i class="fa-solid fa-cart-shopping"></i> Cart
+        <i class="fa-solid fa-cart-shopping" *ngIf="service.getActiveUser() != null"></i> Cart
     </a>
     <a routerLink="/about" mat-button>
         <i class="fa-solid fa-circle-info"></i> About

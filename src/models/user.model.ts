@@ -9,7 +9,7 @@ export interface UserModel {
     lastName: string;
     phoneNumber: string;
     address: string;
-    favoriteMoviesIds: [];
-    watchedMoviesIds: [];
+    favoriteMoviesIds: number[];
+    watchedMoviesIds: number[];
     cart: CartModel[];
 }
