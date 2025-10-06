@@ -19,7 +19,14 @@ export class UserService {
                     address: "exampleAddress 123",
                     favoriteMoviesIds: [1, 7, 4, 3],
                     watchedMoviesIds: [],
-                    cart: []
+                    cart: [{
+                        movieId: 1,
+                        userId: "user@example.com",
+                        pojectionId: 4,
+                        ticketCount: 2,
+                        status: 'reserved',
+                        rating: null,
+                    }]
                 }
             ];
 
@@ -44,6 +51,19 @@ export class UserService {
             }
         }
         return false;
+    }
+
+    static register(model: UserModel){
+        const users = this.retrieveUsers()
+
+        for (let u of users) {
+            if (u.email === model.email)
+                return false
+        }
+
+        users.push(model)
+        localStorage.setItem('users', JSON.stringify(users))
+        return true
     }
 
     static getActiveUser():UserModel | null{

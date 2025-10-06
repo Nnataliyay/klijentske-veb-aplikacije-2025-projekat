@@ -1,3 +1,23 @@
+mat-card{
+    width: 100%;
+    padding: 40px 0;
+    margin: 40px auto 20px auto;
+}
+
+.search-input-row{
+    justify-content: center;
+    padding: 5px;
+}
+
+.search-card{
+    align-items: center;
+    flex-direction: column;
+}
+
+.search-bar{
+    width: 100%;
+}
+
 a{
     width: 174px;
     padding: 15px;

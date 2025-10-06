@@ -1,1 +1,40 @@
-<p>cart works!</p>
+<div class="wrapper">
+
+    <h1>Your Cart</h1>
+    <table mat-table [dataSource]="dataSource!" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="movieId">
+            <th mat-header-cell *matHeaderCellDef><i class="fa-solid fa-hashtag"></i> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.movieId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title:</th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="startDate">
+            <th mat-header-cell *matHeaderCellDef> Start Date: </th>
+            <td mat-cell *matCellDef="let element">
+                {{utils.formatDate(element.startDate)}} <!-- Podsetnik na inline if -->
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions</th>
+            <td mat-cell *matCellDef="let element">
+                <a matButton [routerLink]="['/details/', element.movieId]">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Details
+                </a>
+                <a matButton> <!-- (click)="doAddFavorite()" -->
+                    <i class="fa-solid fa-heart-circle-plus"></i> Favorite
+                </a>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+</div>

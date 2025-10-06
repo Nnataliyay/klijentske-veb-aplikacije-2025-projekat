@@ -19,9 +19,6 @@
     <a routerLink="/cart" mat-button>
         <i class="fa-solid fa-cart-shopping" *ngIf="service.getActiveUser() != null"></i> Cart
     </a>
-    <a routerLink="/about" mat-button>
-        <i class="fa-solid fa-circle-info"></i> About
-    </a>
     <button mat-button *ngIf="service.getActiveUser() != null" (click)="doLogout()">
         <i class="fa-solid fa-right-from-bracket"></i> Log Out
     </button>
