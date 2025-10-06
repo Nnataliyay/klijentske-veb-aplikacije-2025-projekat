@@ -22,17 +22,6 @@
                 <input type="text" matInput disabled [value]="projection?.type">
             </mat-form-field>
 
-            <!--
-            <mat-form-field class="full-width">
-                <mat-label>Airline:</mat-label>
-                <mat-select class="full-width"  [(ngModel)]="selectedAirline">
-                    <mat-option *ngFor="let airline of airlines" [value]="airline.id">
-                        {{airline.name}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            -->
-
             <mat-form-field class="full-width">
                 <mat-label>Price per ticket:</mat-label>
                 <input type="text" matInput disabled [value]="projection!.price">
@@ -50,7 +39,7 @@
 
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button><!--(click)="doAddToCart()"-->
+            <button mat-button (click)="doAddToCart()">
                 <i class="fa-solid fa-cart-shopping"></i> Reserve
             </button>
         </mat-card-actions>

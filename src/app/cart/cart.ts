@@ -15,6 +15,8 @@ import {MovieModel} from '../../models/movie.model';
 import {MovieService} from '../services/movie.service';
 import {UserModel} from '../../models/user.model';
 import {CartModel} from '../../models/cart.model';
+import {ProjectionModel} from '../../models/projection.model';
+import {ProjectionService} from '../services/projection.service';
 
 @Component({
   selector: 'app-cart',
@@ -23,10 +25,12 @@ import {CartModel} from '../../models/cart.model';
   styleUrl: './cart.css'
 })
 export class Cart {
-    displayedColumns: string[] = ['movieId', 'title', 'startDate', 'actions'];
+    displayedColumns: string[] = ['movieTitle', 'status','projectionDate', 'pricePerTicket', 'rating', 'ticketCount', 'totalPrice', 'actions'];
 
-    dataSource: CartModel[] | null = null;
-    activeUser: UserModel | null = UserService.getActiveUser();
+    public dataSource: CartModel[] = [];
+    public activeUser: UserModel | null = UserService.getActiveUser();
+    movies: MovieModel[] | null = null;
+    projections: ProjectionModel[] | null = null;
 
     constructor(private router:Router, public utils:UtilsService) {
         if (!UserService.getActiveUser()) {
@@ -37,7 +41,18 @@ export class Cart {
             return;
         }
 
+        MovieService.getMovies(0,4).
+        then(response => {
+            this.movies = response.data})
+
         this.activeUser = UserService.getActiveUser();
+        this.dataSource = UserService.getActiveUser()!.cart;
+        console.log("MJAUUUUUUUUUUUUU" + this.activeUser!.cart);
+        console.log("Cart DataSource Loaded:", this.dataSource);
+
+        this.projections = ProjectionService.getProjections();
+        console.log("MPROJECTIONSSS   " +this.projections);
+
     }
 
 }

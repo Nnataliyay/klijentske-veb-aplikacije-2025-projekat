@@ -27,26 +27,15 @@
             </mat-card-content>
         </mat-card>
 
-        <div class="projection-container">
+        <div class="projection-container review-container">
             <h1 style="width: 100%">Reviews </h1>
-            <mat-card class="projection-card" appearance="outlined"*ngFor="let projection of projections">
+            <mat-card class="projection-card" appearance="outlined"*ngFor="let comment of comments">
                 <mat-card-content>
-                    <p>{{projection.date}}</p>
-                    <p>Length: {{movie.runTime}} min</p>
-                    <p>{{projection.type}}</p>
-                    <br/>
-                    <p>Price: {{projection.price}} RSD</p>
-                    <p>Price: {{projection.projectionId}} ID</p>
-
-
+                    <h3>{{comment.username}}</h3>
+                    <p>{{utils.formatDate(comment.createdAt)}}</p>
+                    <p>{{comment.comment}}</p>
                 </mat-card-content>
-                <mat-card-actions>
-                    <a mat-button [routerLink]="['/details/'+movie.movieId+'/purchase/'+projection.projectionId]">
-                        <i class="fa-solid fa-bookmark"></i> Reserve tickets
-                    </a>
-                </mat-card-actions>
             </mat-card>
-
         </div>
 
 

@@ -14,6 +14,8 @@ import {ActorModel} from '../../models/actor.model';
 import {ActorService} from '../services/actor.service';
 import {ProjectionModel} from '../../models/projection.model';
 import {ProjectionService} from '../services/projection.service';
+import {CommentModel} from '../../models/comment.model';
+import {CommentService} from '../services/comment.service';
 
 
 @Component({
@@ -26,6 +28,7 @@ export class Details {
     public actors: ActorModel[] | null = null; // fali get Actors by id
     public projections: ProjectionModel[] | null = null;
     public movie: MovieModel | null = null;
+    public comments: CommentModel[] | null = null;
 
     public constructor(private route: ActivatedRoute, public utils: UtilsService) {
         route.params.subscribe(params => {
@@ -35,7 +38,11 @@ export class Details {
             ActorService.getActorById(params['movieActors.movieActorId']).then(response => this.actors = response.data);
         });
         this.projections = ProjectionService.getProjections();
+        console.log("MJAUUUUUUUUUUUUU" +this.projections);
+        this.comments = CommentService.getComments();
 
     }
+
+
 }
 

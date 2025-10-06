@@ -35,10 +35,23 @@ mat-list, mat-list-item{
     flex-wrap: wrap;
 }
 
+.review-container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    row-gap: 30px;
+    column-gap: 30px;
+    flex-wrap: wrap;
+}
+
 .projection-card{
     font-size: 17px;
     align-items: center;
     width: 240px;
+}
+
+.review-container .projection-card{
+    width: 400px;
 }
 
 mat-card-actions a{

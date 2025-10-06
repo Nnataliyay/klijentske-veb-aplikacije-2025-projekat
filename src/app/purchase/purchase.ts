@@ -61,18 +61,17 @@ export class Purchase {
         this.user = UserService.getActiveUser();
     }
 
-    /*
+
     doAddToCart() {
         const result = UserService.addToCart({
             movieId: this.movie!.movieId,
             userId: this.user!.email,
-            pojection: this.projection,
-            projectionDate: this.projection?.date,
-            ticketCount: this.projection?.price,
+            pojectionId: this.projection!.projectionId,
+            ticketCount: this.selectedTicketCount,
             status: "reserved",
             rating: null,
         });
 
         result ? this.router.navigate(['/user']) : alert('Failed to order');
-    } */
+    }
 }

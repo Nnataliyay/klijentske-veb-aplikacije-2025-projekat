@@ -1,7 +1,7 @@
 export interface CommentModel {
     commentId: number;
     movieId: number;
-    userId: string;
+    username: string;
     comment: string;
     createdAt: string;
 }
