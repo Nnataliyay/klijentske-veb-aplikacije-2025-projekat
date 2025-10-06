@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
-import {JsonPipe, NgIf} from '@angular/common';
+import {JsonPipe, NgFor, NgIf} from '@angular/common';
 import {UtilsService} from '../services/utils.service';
 import {Loading} from '../loading/loading';
 import {MatCardModule} from '@angular/material/card';
@@ -14,17 +14,20 @@ import {MatChipsModule} from '@angular/material/chips';
 import {ActorModel} from '../../models/actor.model';
 import {GenreModel} from '../../models/genre.model';
 import {ActorService} from '../services/actor.service';
+import {ProjectionModel} from '../../models/projection.model';
+import {ProjectionService} from '../services/projection.service';
 
 
 @Component({
   selector: 'app-details',
-    imports: [JsonPipe, NgIf, Loading, MatCardModule, MatButtonModule, MatListModule,MatChipsModule, SafePipe, RouterLink],
+    imports: [JsonPipe, NgIf, NgFor, Loading, MatCardModule, MatButtonModule, MatListModule,MatChipsModule, SafePipe, RouterLink],
   templateUrl: './details.html',
   styleUrl: './details.css'
 })
 export class Details {
     public actors: ActorModel[] | null = null; // fali get Actors by id
     public genres: GenreModel[] | null = null;
+    public projections: ProjectionModel[] | null = null;
     public movie: MovieModel | null = null;
 
     public constructor(private route: ActivatedRoute, public utils: UtilsService) {
@@ -34,7 +37,8 @@ export class Details {
         route.params.subscribe(params => {
             ActorService.getActorById(params['movieActords.movieActorId']).then(response => this.actors = response.data);
         });
-        console.log(this.actors);
+        this.projections = ProjectionService.getProjections();
+
     }
 }
 

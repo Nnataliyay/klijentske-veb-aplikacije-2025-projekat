@@ -20,7 +20,7 @@ export interface MovieModel {
     updatedAt: string | null;
     director: DirectorModel;
     movieActors: MovieActorModel[];
-    movieGenres: MovieGenreModel[]
+    movieGenres: MovieGenreModel[];
 }
 
 

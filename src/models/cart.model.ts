@@ -1,9 +1,10 @@
 import {MovieModel} from './movie.model';
+import {ProjectionModel} from './projection.model';
 
 export interface CartModel{
     movieId: number;
     userId: string;
-    movie: MovieModel[];
+    prjection: ProjectionModel,
     projectionDate: string;
     ticketCount: number;
     status: 'reserved' | 'completed' | 'cancelled';

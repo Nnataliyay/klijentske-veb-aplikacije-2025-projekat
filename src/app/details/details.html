@@ -8,10 +8,7 @@
             <mat-card-content>
                 <h1>{{movie.originalTitle}}</h1>
                 <mat-chip-set aria-label="Chihuahua traits">
-                    <mat-chip>Horor</mat-chip>
-                    <mat-chip>Psychological</mat-chip>
-                    <mat-chip>Mystery</mat-chip>
-
+                    <mat-chip *ngFor="let genre of movie.movieGenres">{{genre.genre.name}}</mat-chip>
                 </mat-chip-set>
                 <p>Description: {{movie.description}}</p>
 
@@ -19,8 +16,8 @@
                     <mat-list-item>
                         <p>Director: {{movie.director.name}}</p>
                     </mat-list-item>
-                    <mat-list-item>
-                        <div>Actors: {{movie.movieActors}}</div>
+                    <mat-list-item *ngFor="let actor of movie.movieActors">
+                        <p>Actors: {{actor.actor.name}}</p>
                     </mat-list-item>
                     <mat-list-item>
                         <p>Start date: {{movie.startDate}}</p>
@@ -28,12 +25,29 @@
 
                 </mat-list>
             </mat-card-content>
-            <mat-card-actions>
-                <a mat-button [routerLink]="['/details/'+movie.movieId+'/purchase']">
-                    <i class="fa-solid fa-bookmark"></i> Purchase
-                </a>
-            </mat-card-actions>
         </mat-card>
+
+        <div class="projection-container">
+            <mat-card class="projection-card" appearance="outlined"*ngFor="let projection of projections">
+                <mat-card-content>
+                    <p>{{projection.date}}</p>
+                    <p>Length: {{movie.runTime}} min</p>
+                    <p>{{projection.type}}</p>
+                    <br/>
+                    <p>Price: {{projection.price}} RSD</p>
+
+
+                </mat-card-content>
+                <mat-card-actions>
+                    <a mat-button [routerLink]="['/details/'+movie.movieId+'/purchase']">
+                        <i class="fa-solid fa-bookmark"></i> Reserve tickets
+                    </a>
+                </mat-card-actions>
+            </mat-card>
+
+        </div>
+
+
     </div>
 
 

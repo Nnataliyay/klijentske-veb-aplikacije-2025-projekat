@@ -26,3 +26,17 @@ mat-list, mat-list-item{
     margin: 0;
 }
 
+.projection-container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    row-gap: 30px;
+    column-gap: 30px;
+    flex-wrap: wrap;
+}
+
+.projection-card{
+    font-size: 17px;
+    align-items: center;
+    width: 240px;
+}

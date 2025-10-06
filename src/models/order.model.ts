@@ -1,7 +1,4 @@
-
-
 export interface OrderModel {
-
     flightId: number;
     flightNumber: string;
     destination: string;
