@@ -38,7 +38,6 @@ export class Details {
             ActorService.getActorById(params['movieActors.movieActorId']).then(response => this.actors = response.data);
         });
         this.projections = ProjectionService.getProjections();
-        console.log("MJAUUUUUUUUUUUUU" +this.projections);
         this.comments = CommentService.getComments();
 
     }
